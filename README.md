@@ -1,5 +1,5 @@
 # Adding DCSync Permissions
-
+Mostly copypasta from https://github.com/tothi/rbcd-attack
 ```
 usage: dcsync.py [-h] -dc FQDN -t USERNAME [-hashes LMHASH:NTHASH] [-k] identity
 
