@@ -1,3 +1,5 @@
+#Adding DCSync Permissions
+
 ```
 usage: dcsync.py [-h] -dc FQDN -t USERNAME [-hashes LMHASH:NTHASH] [-k] identity
 
