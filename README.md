@@ -22,3 +22,12 @@ Example: ./dcsync.py -dc dc01.n00py.local -t 'CN=n00py,OU=Employees,DC=n00py,DC=
 ```
 
 Warning: This toold does not contain a cleanup function (yet?)
+
+Dependencies;
+
+Impacket 
+```
+apt install heimdal-dev -y
+apt install libkrb5-dev -y
+python3 -m pip install gssapi
+```
