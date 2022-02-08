@@ -27,6 +27,7 @@ Dependencies:
 
 Impacket 
 
+For kerberos:
 ```
 apt install heimdal-dev -y
 apt install libkrb5-dev -y
