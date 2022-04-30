@@ -37,11 +37,12 @@ To clean up after you are done, use ACLpwn https://github.com/fox-it/aclpwn.py. 
 
 ## Dependencies:
 
-Impacket 
+Impacket
+pip3 install pywerview
 
 For kerberos:
 ```
 apt install heimdal-dev -y
 apt install libkrb5-dev -y
-python3 -m pip install gssapi pywerview
+python3 -m pip install gssapi
 ```
