@@ -38,7 +38,7 @@ To clean up after you are done, use ACLpwn https://github.com/fox-it/aclpwn.py. 
 ## Dependencies:
 
 Impacket <br>
-pip3 install pywerview
+`pip3 install pywerview`
 
 For kerberos:
 ```
